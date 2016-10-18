@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Tehnotrack_hw1</string>
+    <string name="button_text">Start</string>
+    <string name="button_text_2">Stop</string>
+</resources>
