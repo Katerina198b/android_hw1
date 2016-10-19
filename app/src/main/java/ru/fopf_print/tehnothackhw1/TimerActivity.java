@@ -90,7 +90,8 @@ public class TimerActivity extends Activity {
             intToStringConverter = new IntToStringConverter();
             for (int i = 1; i <= 1000; i++) {
                 if (isStart.get()){
-                    publishProgress(-1);
+                    count = 0;
+                    publishProgress(count);
                     return null;
                 }
                 count ++;
@@ -109,7 +110,7 @@ public class TimerActivity extends Activity {
 
         @Override
         protected void onProgressUpdate(Integer... count) {
-            if (count[0] == -1) {
+            if (count[0] == 0) {
                 textView.setText("");
             } else {
 

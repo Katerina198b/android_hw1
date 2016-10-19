@@ -54,16 +54,16 @@ public class IntToStringConverter {
                 number.append("пятьдесят ");
                 return;
             case 6:
-                number.append("шестидесят ");
+                number.append("шестьдесят ");
                 return;
             case 7:
                 number.append("семьдесят ");
                 return;
             case 8:
-                number.append("восемдесят ");
+                number.append("восемьдесят ");
                 return;
             case 9:
-                number.append("девяноста ");
+                number.append("девяносто ");
         }
     }
 
@@ -76,10 +76,10 @@ public class IntToStringConverter {
                 number.append("двести ");
                 return;
             case 3:
-                number.append("тристо ");
+                number.append("триста ");
                 return;
             case 4:
-                number.append("четыресто ");
+                number.append("четыреста ");
                 return;
             case 5:
                 number.append("пятьсот ");
@@ -139,16 +139,17 @@ public class IntToStringConverter {
     public String MakeStringFromInteger(int i) {
 
         if (i/100  > 0) {
-            three(i % 1000);
+            three(i / 100);
         }
         if ((i/10) % 10 == 1) {
-            decade(i % 100);
-        }
-        if ((i/10) % 10 > 1) {
-            two(i % 100);
-        }
-        if (i % 10 != 0) {
-            one(i % 10);
+            decade(i % 10);
+        } else {
+            if ((i/10) % 10 > 1) {
+                two((i/10) % 10);
+            }
+            if (i % 10 != 0) {
+                one(i % 10);
+            }
         }
         String n = number.toString();
         number.delete(0, number.length());
