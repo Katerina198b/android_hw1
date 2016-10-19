@@ -11,7 +11,7 @@
     tools:context="ru.fopf_print.tehnothackhw1.TimerActivity">
 
     <TextView
-        android:text="TextView"
+        android:text=""
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/button"

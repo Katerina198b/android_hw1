@@ -9,7 +9,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="ru.fopf_print.tehnotrack_hw1.MainActivity">
+    tools:context="ru.fopf_print.tehnothackhw1.MainActivity">
 
     <ImageView
         android:layout_width="fill_parent"
