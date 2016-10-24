@@ -1,6 +1,8 @@
 package ru.fopf_print.tehnothackhw1;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.res.Resources;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.SystemClock;
@@ -19,6 +21,7 @@ public class TimerActivity extends Activity {
     static Integer count = 0;
     static AtomicBoolean isStart = new AtomicBoolean(true);
     private static Logger log = Logger.getLogger(TimerActivity.class.getName());
+    Resources resources = null;
 
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
@@ -36,13 +39,12 @@ public class TimerActivity extends Activity {
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
         isStart.set(savedInstanceState.getBoolean("Start"));
-
-
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        resources = this.getResources();
         setContentView(R.layout.activity_timer);
         log.info("activity_timer created");
         button = (Button) findViewById(R.id.button);
@@ -73,7 +75,7 @@ public class TimerActivity extends Activity {
         }
     }
 
-    static class Timer extends AsyncTask <Void, Integer, Void> {
+    class Timer extends AsyncTask <Void, Integer, Void> {
         TimerActivity activity;
         IntToStringConverter intToStringConverter = null;
 
@@ -87,7 +89,7 @@ public class TimerActivity extends Activity {
 
         @Override
         protected Void doInBackground(Void... params) {
-            intToStringConverter = new IntToStringConverter();
+            intToStringConverter = new IntToStringConverter(resources);
             for (int i = 1; i <= 1000; i++) {
                 if (isStart.get()){
                     count = 0;
