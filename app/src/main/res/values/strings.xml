@@ -1,45 +1,19 @@
 <resources>
-    <string name="app_name">TehnothackHw1</string>
+    <string name="app_name">Fopf-Print Auth</string>
     <string name="button_text">Start</string>
     <string name="button_text_2">Stop</string>
     <string name="text_finished">EHUUUUU!</string>
-    <string-array name="numbers_array">
-        <item>Один</item>
-        <item>Два</item>
-        <item>Три</item>
-        <item>Четыре</item>
-        <item>Пять</item>
-        <item>Шесть</item>
-        <item>Семь</item>
-        <item>Восемь</item>
-        <item>Девять</item>
-        <item>Десять</item>
-        <item>Одиннадцать</item>
-        <item>Двенадцать</item>
-        <item>Тринадцать</item>
-        <item>Четырнадцать</item>
-        <item>Пятнадцать</item>
-        <item>Шестнадцать</item>
-        <item>Семнадцать</item>
-        <item>Восемнадцать</item>
-        <item>Девятнадцать</item>
-        <item>Двадцать</item>
-        <item>Тридцать</item>
-        <item>Сорок</item>
-        <item>Пятдесят</item>
-        <item>Шестьдесят</item>
-        <item>Семьдесят</item>
-        <item>Восемьдесят</item>
-        <item>Девяносто</item>
-        <item>Сто</item>
-        <item>Двести</item>
-        <item>Триста</item>
-        <item>Четыреста</item>
-        <item>Пятьсот</item>
-        <item>Шестьсот</item>
-        <item>Семьсот</item>
-        <item>Восемьсот</item>
-        <item>Девятьсот</item>
-        <item>Тысяча</item>
-    </string-array>
+
+    <string name="client_id">f9KUwquofM9aAMWl5piYhcVMT719riXcPhdxPJfZ</string>
+    <string name="client_secret">plVGa6qtsQY7m8G1c0IwVd98NF1Gj5GOIMaKzKDvvAmenpitgALG95xihLa7YLNC5Jr9KAUEmJU7PY1qT1w8CBh2i05Jlqm3j2HgmfG0vPsJZeJHIRiN1BtndqzGOexc</string>
+    <string name="title_text">OAuth</string>
+
+    <string name="callback_implicit_url">http://fopf-print.ru/o/android_successful</string>
+    <string name="implicit_auth_url">http://fopf-print.ru/o/authorize/?response_type=token%1$sredirect_uri=%2$s%3$sclient_id=%4$s%5$sgrant_type=implicit</string>
+    <string name="implicit_token_url">http://fopf-print.ru/o/authorize/?response_type=token%1$sredirect_uri=%2$s%3$sclient_id=%4$s%5$sgrant_type=implicit</string>
+
+    <string name="login_hint">login</string>
+    <string name="password_hint">password</string>
+    <string name="login_button">login</string>
+    <string name="show_token">Show OAuth Token</string>
 </resources>

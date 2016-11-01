@@ -77,7 +77,6 @@ public class TimerActivity extends Activity {
 
     class Timer extends AsyncTask <Void, Integer, Void> {
         TimerActivity activity;
-        IntToStringConverter intToStringConverter = null;
 
         void link(TimerActivity act) {
             activity = act;
@@ -89,7 +88,6 @@ public class TimerActivity extends Activity {
 
         @Override
         protected Void doInBackground(Void... params) {
-            intToStringConverter = new IntToStringConverter(resources);
             for (int i = 1; i <= 1000; i++) {
                 if (isStart.get()){
                     count = 0;
@@ -116,7 +114,7 @@ public class TimerActivity extends Activity {
                 textView.setText("");
             } else {
 
-                textView.setText(intToStringConverter.MakeStringFromInteger(count[0]));
+                textView.setText(count[0]);
             }
         }
 

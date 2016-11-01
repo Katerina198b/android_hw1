@@ -45,6 +45,8 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import ru.fopf_print.tehnothackhw1.auth.AuthActivity;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -60,10 +62,12 @@ public class MainActivity extends AppCompatActivity {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                Intent intent = new Intent(MainActivity.this, TimerActivity.class);
+                Intent intent = new Intent(MainActivity.this, AuthActivity.class);
                 startActivity(intent);
+                //finish();
             }
         }).start();
+
     }
 }
 
