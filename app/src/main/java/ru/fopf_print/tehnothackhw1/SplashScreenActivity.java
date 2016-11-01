@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
-public class MainActivity extends Activity {
+public class SplashScreenActivity extends Activity {
 
 
     @Override
@@ -15,7 +15,7 @@ public class MainActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.splashscreen_activity_main);
 
         new Thread(new Runnable() {
             @Override
@@ -28,7 +28,7 @@ public class MainActivity extends Activity {
                 Intent intent = null;
                 //intent = (Intent) getLastNonConfigurationInstance();
                 if (intent == null) {
-                    intent = new Intent(MainActivity.this, TimerActivity.class);
+                    intent = new Intent(SplashScreenActivity.this, TimerActivity.class);
                 }
                 startActivity(intent);
 
@@ -47,12 +47,12 @@ import android.os.Bundle;
 
 import ru.fopf_print.tehnothackhw1.auth.AuthActivity;
 
-public class MainActivity extends AppCompatActivity {
+public class SplashScreenActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.splashscreen_activity_main);
         System.out.println("Hello World!");
         new Thread(new Runnable() {
             @Override
@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                Intent intent = new Intent(MainActivity.this, AuthActivity.class);
+                Intent intent = new Intent(SplashScreenActivity.this, AuthActivity.class);
                 startActivity(intent);
                 //finish();
             }

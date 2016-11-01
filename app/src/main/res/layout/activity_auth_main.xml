@@ -4,7 +4,7 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="ru.fopf_print.tehnothackhw1.MainActivity">
+    tools:context="ru.fopf_print.tehnothackhw1.SplashScreenActivity">
 
     <FrameLayout
         android:id="@+id/container"
