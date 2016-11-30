@@ -12,29 +12,22 @@ import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-import java.io.IOException;
-import java.net.HttpURLConnection;
 import java.net.URI;
-import java.net.URL;
-
-import javax.net.ssl.HttpsURLConnection;
-import javax.xml.transform.stream.StreamResult;
 
 import ru.fopf_print.tehnothackhw1.R;
-import ru.fopf_print.tehnothackhw1.util.StreamReader;
 
 
 public class WebViewActivity extends AppCompatActivity implements AuthorizationListener {
-    public static final int STATUS_OK = 200;
 
-    public static final String ACCESS_TOKEN = "access_token";
+    public static String ACCESS_TOKEN = "access_token";
     public static final String AUTH_ERROR = "error";
+    public static String token;
 
-    private static final String EXTRA_CLIENT_ID = "client_id";
-    private static final String EXTRA_CLIENT_SECRET = "client_secret";
+    //private static final String EXTRA_CLIENT_ID = "client_id";
+    //private static final String EXTRA_CLIENT_SECRET = "client_secret";
 
-    private String clientId;
-    private String clientSecret;
+    //private String clientId;
+    //private String clientSecret;
 
     private String authUrlTemplate;
     private String tokenUrlTemplate;
@@ -44,8 +37,8 @@ public class WebViewActivity extends AppCompatActivity implements AuthorizationL
 
     public static Intent createAuthActivityIntent(Context context, String clientId, String secret) {
         Intent intent = new Intent(context, WebViewActivity.class);
-        intent.putExtra(EXTRA_CLIENT_ID, clientId);
-        intent.putExtra(EXTRA_CLIENT_SECRET, secret);
+        //intent.putExtra(EXTRA_CLIENT_ID, clientId);
+        //intent.putExtra(EXTRA_CLIENT_SECRET, secret);
         return intent;
     }
 
@@ -57,8 +50,8 @@ public class WebViewActivity extends AppCompatActivity implements AuthorizationL
         setContentView(R.layout.web_view_activity);
         webView = (WebView) findViewById(R.id.web_view);
 
-        clientId = getIntent().getStringExtra(EXTRA_CLIENT_ID);
-        clientSecret = getIntent().getStringExtra(EXTRA_CLIENT_SECRET);
+        //clientId = getIntent().getStringExtra(EXTRA_CLIENT_ID);
+        //clientSecret = getIntent().getStringExtra(EXTRA_CLIENT_SECRET);
 
         authUrlTemplate = getString(R.string.implicit_auth_url);
         tokenUrlTemplate = getString(R.string.implicit_token_url);
@@ -68,17 +61,12 @@ public class WebViewActivity extends AppCompatActivity implements AuthorizationL
     @Override
     protected void onResume() {
         super.onResume();
-
-        onAuthStarted();
-        String url = String.format(authUrlTemplate, "&", redirectUrl, "&", clientId, "&");
+        String url = String.format(authUrlTemplate, "&", redirectUrl, "&", getString(R.string.client_id), "&");
         URI uri = URI.create(url);
         webView.setWebViewClient(new OAuthWebClient(this));
         webView.loadUrl(uri.toString());
     }
 
-    @Override
-    public void onAuthStarted() {
-    }
 
     @Override
     public void onComplete(String token) {
@@ -96,10 +84,12 @@ public class WebViewActivity extends AppCompatActivity implements AuthorizationL
         finish();
     }
 
+
+
     private class OAuthWebClient extends WebViewClient {
         private AuthorizationListener listener;
 
-        public OAuthWebClient(AuthorizationListener listener) {
+        OAuthWebClient(AuthorizationListener listener) {
             this.listener = listener;
         }
 
@@ -107,11 +97,10 @@ public class WebViewActivity extends AppCompatActivity implements AuthorizationL
         public void onPageStarted(WebView view, String url, Bitmap favicon) {
             if (url.startsWith(view.getResources().getString(R.string.callback_implicit_url))) {
                 String[] urls = url.split("#");
-                new AccessTokenGetter(listener).execute(urls[1]);
+                makeToken(urls[1]);
+                //new AccessTokenGetter(listener).execute(urls[1]);
                 return;
-            } else {
             }
-
             super.onPageStarted(view, url, favicon);
         }
 
@@ -122,6 +111,17 @@ public class WebViewActivity extends AppCompatActivity implements AuthorizationL
         }
     }
 
+    protected void makeToken(String str) {
+        for (String param : str.split("&")) {
+            String[] valuePair = param.split("=");
+            if (valuePair[0].equals("access_token")){
+                if (valuePair.length > 1) {
+                    onComplete(valuePair[1]);
+                }
+            }
+        }
+    }
+/*
     private class AccessTokenGetter extends AsyncTask<String, Void, String> {
         private AuthorizationListener listener;
 
@@ -158,5 +158,5 @@ public class WebViewActivity extends AppCompatActivity implements AuthorizationL
             }
         }
     }
-
+*/
 }

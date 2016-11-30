@@ -2,9 +2,10 @@ package ru.fopf_print.tehnothackhw1.util;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+
 import java.io.InputStream;
 import java.io.InputStreamReader;
-
+//NOT USED NAW111
 public class StreamReader {
 
     public static String getResponseString(InputStream stream) throws IOException {

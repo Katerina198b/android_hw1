@@ -1,44 +1,3 @@
-/**package ru.fopf_print.tehnothackhw1;
-
-import android.app.Activity;
-import android.content.Intent;
-import android.os.Bundle;
-
-public class SplashScreenActivity extends Activity {
-
-
-    @Override
-    public Object onRetainNonConfigurationInstance() {
-        return intent;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.splashscreen_activity_main);
-
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    Thread.sleep(2000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                Intent intent = null;
-                //intent = (Intent) getLastNonConfigurationInstance();
-                if (intent == null) {
-                    intent = new Intent(SplashScreenActivity.this, TimerActivity.class);
-                }
-                startActivity(intent);
-
-            }
-        }).start();
-    }
-
-}
-*/
-
 package ru.fopf_print.tehnothackhw1;
 
 import android.content.Intent;
@@ -53,7 +12,6 @@ public class SplashScreenActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splashscreen_activity_main);
-        System.out.println("Hello World!");
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -64,7 +22,7 @@ public class SplashScreenActivity extends AppCompatActivity {
                 }
                 Intent intent = new Intent(SplashScreenActivity.this, AuthActivity.class);
                 startActivity(intent);
-                //finish();
+                finish();
             }
         }).start();
 

@@ -7,6 +7,7 @@
     <string name="client_id">f9KUwquofM9aAMWl5piYhcVMT719riXcPhdxPJfZ</string>
     <string name="client_secret">plVGa6qtsQY7m8G1c0IwVd98NF1Gj5GOIMaKzKDvvAmenpitgALG95xihLa7YLNC5Jr9KAUEmJU7PY1qT1w8CBh2i05Jlqm3j2HgmfG0vPsJZeJHIRiN1BtndqzGOexc</string>
     <string name="title_text">OAuth</string>
+    <string name="authToken">Token</string>
 
     <string name="callback_implicit_url">http://fopf-print.ru/o/android_successful</string>
     <string name="implicit_auth_url">http://fopf-print.ru/o/authorize/?response_type=token%1$sredirect_uri=%2$s%3$sclient_id=%4$s%5$sgrant_type=implicit</string>
