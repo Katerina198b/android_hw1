@@ -11,7 +11,7 @@
 
     <string name="callback_implicit_url">http://fopf-print.ru/o/android_successful</string>
     <string name="implicit_auth_url">http://fopf-print.ru/o/authorize/?response_type=token%1$sredirect_uri=%2$s%3$sclient_id=%4$s%5$sgrant_type=implicit</string>
-    <string name="implicit_token_url">http://fopf-print.ru/o/authorize/?response_type=token%1$sredirect_uri=%2$s%3$sclient_id=%4$s%5$sgrant_type=implicit</string>
+    <!--<string name="implicit_token_url">http://fopf-print.ru/o/authorize/?response_type=token%1$sredirect_uri=%2$s%3$sclient_id=%4$s%5$sgrant_type=implicit%6$saccess_token=%7$s</string>-->
 
     <string name="login_hint">login</string>
     <string name="password_hint">password</string>
